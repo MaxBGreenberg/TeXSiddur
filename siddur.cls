@@ -10,6 +10,22 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{siddur}
+
+%% Load required packages
+\RequirePackage{geometry}               	% See geometry.pdf to learn the layout options. There are lots.
+\RequirePackage{array}
+%\RequirePackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+						% Currently bugged in Hebrew
+						% Do not use \par with Hebrew typsetting
+\RequirePackage{multicol}			% Enables changing the number of columns in which text is tysepet on a single page.
+\RequirePackage{longtable}			% Enables creating tables that span multiple pages
+\RequirePackage[hidelinks]{hyperref}		% For creating hyperlinks
+\RequirePackage{polyglossia}			% Multilingual, bidirectional tysetting with .otf and .ttf fonts
+
+\setlength\columnsep{2em}			% Sets separation between columns for multicolumn typsetting
+\setlength\columnseprule{0.4pt}			% Separates columns with black line
+\setmainlanguage{hebrew}			% Sets main language to Hebrew
+
 \newcommand\@ptsize{}
 \newif\if@restonecol
 \newif\if@titlepage
@@ -83,6 +99,10 @@
 }
 \ExecuteOptions{a5paper,11pt,twoside,onecolumn,final,openany}
 \ProcessOptions
+
+\def\nusach#1{\gdef\@nusach{#1}}
+\def\subtitle#1{\gdef\@subtitle{#1}}
+
 \input{bk1\@ptsize.clo}
 \setlength\lineskip{1\p@}
 \setlength\normallineskip{1\p@}
@@ -712,19 +732,6 @@
 \else
   \onecolumn
 \fi
-%% Load required packages
-\RequirePackage{geometry}               	% See geometry.pdf to learn the layout options. There are lots.
-\RequirePackage{array}
-%\RequirePackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
-						% Currently bugged in Hebrew
-						% Do not use \par with Hebrew typsetting
-\RequirePackage{multicol}			% Enables changing the number of columns in which text is tysepet on a single page.
-\RequirePackage{longtable}			% Enables creating tables that span multiple pages
-\RequirePackage[hidelinks]{hyperref}		% For creating hyperlinks
-\RequirePackage{polyglossia}			% Multilingual, bidirectional tysetting with .otf and .ttf fonts
-\setlength\columnsep{2em}			% Sets separation between columns for multicolumn typsetting
-\setlength\columnseprule{0.4pt}			% Separates columns with black line
-\setmainlanguage{hebrew}			% Sets main language to Hebrew
 
 %% Code to replace certain hebrew numbers which would otherwise spell negative words
 %% Found on the TeX Stack Exchange
