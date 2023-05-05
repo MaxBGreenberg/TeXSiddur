@@ -83,6 +83,7 @@
 }
 \ExecuteOptions{a5paper,11pt,twoside,onecolumn,final,openany}
 \ProcessOptions
+
 \input{bk1\@ptsize.clo}
 \setlength\lineskip{1\p@}
 \setlength\normallineskip{1\p@}
@@ -712,6 +713,7 @@
 \else
   \onecolumn
 \fi
+
 %% Load required packages
 \RequirePackage{geometry}               	% See geometry.pdf to learn the layout options. There are lots.
 \RequirePackage{array}
@@ -722,6 +724,8 @@
 \RequirePackage{longtable}			% Enables creating tables that span multiple pages
 \RequirePackage[hidelinks]{hyperref}		% For creating hyperlinks
 \RequirePackage{polyglossia}			% Multilingual, bidirectional tysetting with .otf and .ttf fonts
+
+
 \setlength\columnsep{2em}			% Sets separation between columns for multicolumn typsetting
 \setlength\columnseprule{0.4pt}			% Separates columns with black line
 \setmainlanguage{hebrew}			% Sets main language to Hebrew
