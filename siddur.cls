@@ -101,6 +101,10 @@
 \setcounter{dbltopnumber}{2}
 \renewcommand\dbltopfraction{.7}
 \renewcommand\dblfloatpagefraction{.5}
+
+\def\nusach#1{\gdef\@nusach{#1}}
+\def\subtitle#1{\gdef\@subtitle{#1}}
+
 \if@twoside
   \def\ps@headings{%
       \let\@oddfoot\@empty\let\@evenfoot\@empty
