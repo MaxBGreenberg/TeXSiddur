@@ -12,8 +12,6 @@
 \ProvidesClass{siddur}
 \newcommand\@ptsize{}
 \newif\if@restonecol
-\newif\if@titlepage
-\@titlepagetrue
 \newif\if@openright
 \newif\if@mainmatter \@mainmattertrue
 \if@compatibility\else
@@ -54,10 +52,6 @@
 \DeclareOption{draft}{\setlength\overfullrule{5pt}}
 \if@compatibility\else
   \DeclareOption{final}{\setlength\overfullrule{0pt}}
-\fi
-\DeclareOption{titlepage}{\@titlepagetrue}
-\if@compatibility\else
-  \DeclareOption{notitlepage}{\@titlepagefalse}
 \fi
 \if@compatibility
 \@openrighttrue
