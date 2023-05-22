@@ -96,8 +96,6 @@
 \renewcommand\dbltopfraction{.7}
 \renewcommand\dblfloatpagefraction{.5}
 
-\def\nusach#1{\gdef\@nusach{#1}}
-\def\subtitle#1{\gdef\@subtitle{#1}}
 
 \if@twoside
   \def\ps@headings{%
@@ -642,6 +640,22 @@
 \setlength\columnseprule{0.4pt}			% Separates columns with black line
 \setmainlanguage{hebrew}			% Sets main language to Hebrew
 
+%% New variables for nusach and subtitle
+\def\nusach#1{\gdef\@nusach{#1}}
+\def\subtitle#1{\gdef\@subtitle{#1}}
+
+%% Define \maketitle command
+\def\maketitle{
+	\begin{titlepage}
+		\begin{center}
+			\null\Huge\vskip 2em
+			\@title\\\vskip 1em\Large
+			\@nusach\\\vskip 2em
+			\@subtitle
+		\end{center}
+	\end{titlepage}
+}
+
 %% Code to replace certain hebrew numbers which would otherwise spell negative words
 %% Found on the TeX Stack Exchange
 %% https://tex.stackexchange.com/questions/300008/modify-specific-hebrew-alpha-numerals-on-page-number
@@ -663,6 +677,7 @@
 \newbadnum{344}{שדמ}
 \newbadnum{744}{תשדמ}
 
+%% Set margin size
 \marginparsep 20pt
 \marginparwidth 40pt
 
