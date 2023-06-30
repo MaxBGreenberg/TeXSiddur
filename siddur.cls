@@ -279,7 +279,7 @@
     \Huge \bfseries  #1\par\nobreak
     \vskip 20\p@
   }}
-\newcommand\section{\setcounter{section}{0}\@startsection {section}{1}{\z@}%
+\newcommand\section{\setcounter{mishnah}{0}\@startsection {section}{1}{\z@}%
                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
                                    {2.3ex \@plus.2ex}%
                                    {\normalfont\Large\bfseries}}
@@ -627,6 +627,7 @@
 %% Load required packages
 \RequirePackage{geometry}               	% See geometry.pdf to learn the layout options. There are lots.
 \RequirePackage{array}
+%\RequirePackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
 						% Currently bugged in Hebrew
 						% Do not use \par with Hebrew typsetting
 \RequirePackage{multicol}			% Enables changing the number of columns in which text is tysepet on a single page.
