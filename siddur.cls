@@ -226,7 +226,7 @@
               \if@tempswa
                 \twocolumn
               \fi}
-\newcommand\chapter{\vskip 10pt
+\newcommand\chapter{\vskip 5pt
 		   \thispagestyle{plain}%
                     \global\@topnum\z@
                     \@afterindentfalse
