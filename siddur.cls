@@ -150,6 +150,7 @@
 \newcounter {paragraph}[subsubsection]
 \newcounter {subparagraph}[paragraph]
 \newcounter {mishnah}
+\newcounter {braisa}
 \renewcommand \thepart {\@Roman\c@part}
 \renewcommand \thechapter {\@arabic\c@chapter}
 \renewcommand \thesection {\thechapter.\@arabic\c@section}
@@ -158,6 +159,7 @@
 \renewcommand\theparagraph    {\thesubsubsection.\@arabic\c@paragraph}
 \renewcommand\thesubparagraph {\theparagraph.\@arabic\c@subparagraph}
 \renewcommand\themishnah {\@alph\c@mishnah}
+\renewcommand\thebraisa {\@alph\c@braisa}
 \newcommand\@chapapp{\chaptername}
 \newcommand\frontmatter{%
     \cleardoublepage
@@ -279,15 +281,15 @@
     \Huge \bfseries  #1\par\nobreak
     \vskip 20\p@
   }}
-\newcommand\section{\setcounter{mishnah}{0}\@startsection {section}{1}{\z@}%
+\newcommand\section{\setcounter{mishnah}{0}\setcounter{braisa}{0}\@startsection {section}{1}{\z@}%
                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
                                    {2.3ex \@plus.2ex}%
                                    {\normalfont\Large\bfseries}}
-\newcommand\subsection{\setcounter{mishnah}{0}\@startsection{subsection}{2}{\z@}%
+\newcommand\subsection{\setcounter{mishnah}{0}\setcounter{braisa}{0}\@startsection{subsection}{2}{\z@}%
                                      {-3.25ex\@plus -1ex \@minus -.2ex}%
                                      {1.5ex \@plus .2ex}%
                                      {\normalfont\large\bfseries}}
-\newcommand\subsubsection{\setcounter{mishnah}{0}\@startsection{subsubsection}{3}{\z@}%
+\newcommand\subsubsection{\setcounter{mishnah}{0}\setcounter{braisa}{0}\@startsection{subsubsection}{3}{\z@}%
                                      {-3.25ex\@plus -1ex \@minus -.2ex}%
                                      {1.5ex \@plus .2ex}%
                                      {\normalfont\normalsize\bfseries}}
@@ -299,7 +301,8 @@
                                        {3.25ex \@plus1ex \@minus .2ex}%
                                        {-1em}%
                                       {\normalfont\normalsize\bfseries}}
-\newcommand\mishnah{משנה \refstepcounter{mishnah}\themishnah\hspace{1.5 em}}	
+\newcommand\mishnah{משנה \refstepcounter{mishnah}\themishnah\hspace{1.5 em}}
+\newcommand\braisa{ברייתא \refstepcounter{braisa}\thebraisa\hspace{1.5 em}}
 \if@twocolumn
   \setlength\leftmargini  {2em}
 \else
