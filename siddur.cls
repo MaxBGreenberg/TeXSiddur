@@ -681,8 +681,8 @@
 \newbadnum{744}{תשדמ}
 
 %% Set margin size
-\marginparsep 20pt
-\marginparwidth 40pt
+\marginparsep 10pt
+\marginparwidth 30pt
 
 % Reverse margin note placement to account for right-to-left language
 \reversemarginpar
