@@ -684,6 +684,9 @@
 \marginparsep 20pt
 \marginparwidth 40pt
 
+% Reverse margin note placement to account for right-to-left language
+\reversemarginpar
+
 \endinput
 %%
 %% End of file `siddur.cls'.
