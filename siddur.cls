@@ -630,6 +630,7 @@
 %% Load required packages
 \RequirePackage{geometry}               	% See geometry.pdf to learn the layout options. There are lots.
 \RequirePackage{array}
+\RequirePackage{graphicx}			% For including inmages
 %\RequirePackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
 						% Currently bugged in Hebrew
 						% Do not use \par with Hebrew typsetting
