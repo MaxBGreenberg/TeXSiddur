@@ -661,6 +661,28 @@
 	\end{titlepage}
 }
 
+%% Define \makefancytitle commmand
+%% Typesets title page including typsetying ornaments
+%% from pgfornament.sty
+\def\makefancytitle{
+	\begin{titlepage}
+		\begin{center}
+			\null\Huge\vskip 1em
+			\pgfornament[scale=0.2]{69}
+			\vskip 0.5em
+			\pgfornament[scale=0.1,ydelta=-5]{79}\@title\ 
+			\pgfornament[scale=0.1,symmetry=v,ydelta=-5]{79}\\
+			\Large
+			\vskip 1em
+			\@nusach
+			\vskip 2em
+			\@subtitle
+			\vskip 1em
+			\pgfornament[scale=0.2,symmetry=h]{69}
+		\end{center}
+	\end{titlepage}
+}
+
 %% Code to replace certain hebrew numbers which would otherwise spell negative words
 %% Found on the TeX Stack Exchange
 %% https://tex.stackexchange.com/questions/300008/modify-specific-hebrew-alpha-numerals-on-page-number
