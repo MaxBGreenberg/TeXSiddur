@@ -105,17 +105,9 @@
       \let\@mkboth\markboth
     \def\chaptermark##1{%
       \markboth {\MakeUppercase{%
-        \ifnum \c@secnumdepth >\m@ne
-          \if@mainmatter
-            \@chapapp\ \thechapter. \ %
-          \fi
-        \fi
         ##1}}{}}%
     \def\sectionmark##1{%
       \markright {\MakeUppercase{%
-        \ifnum \c@secnumdepth >\z@
-          \thesection. \ %
-        \fi
         ##1}}}}
 \else
   \def\ps@headings{%
@@ -124,11 +116,6 @@
     \let\@mkboth\markboth
     \def\chaptermark##1{%
       \markright {\MakeUppercase{%
-        \ifnum \c@secnumdepth >\m@ne
-          \if@mainmatter
-            \@chapapp\ \thechapter. \ %
-          \fi
-        \fi
         ##1}}}}
 \fi
 \def\ps@myheadings{%
