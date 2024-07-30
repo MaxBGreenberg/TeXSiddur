@@ -284,10 +284,10 @@
                                     {3.25ex \@plus1ex \@minus.2ex}%
                                     {2pt}%
                                     {\normalfont\normalsize\bfseries}}
-\newcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+\newcommand\subparagraph{\@startsection{subparagraph}{5}{\z@}%
                                        {3.25ex \@plus1ex \@minus .2ex}%
-                                       {-1em}%
-                                      {\normalfont\normalsize\bfseries}}
+                                       {2pt}%
+                                      {\normalfont\small\bfseries}}
 \newcommand\mishnah{משנה \refstepcounter{mishnah}\themishnah\hspace{1.5 em}}
 \newcommand\braisa{ברייתא \refstepcounter{braisa}\thebraisa\hspace{1.5 em}}
 \if@twocolumn
