@@ -12,8 +12,6 @@
 \ProvidesClass{siddur}
 \newcommand\@ptsize{}
 \newif\if@restonecol
-\newif\if@titlepage
-\@titlepagetrue
 \newif\if@openright
 \newif\if@mainmatter \@mainmattertrue
 \if@compatibility\else
@@ -55,10 +53,6 @@
 \if@compatibility\else
   \DeclareOption{final}{\setlength\overfullrule{0pt}}
 \fi
-\DeclareOption{titlepage}{\@titlepagetrue}
-\if@compatibility\else
-  \DeclareOption{notitlepage}{\@titlepagefalse}
-\fi
 \if@compatibility
 \@openrighttrue
 \else
@@ -83,7 +77,6 @@
 }
 \ExecuteOptions{a5paper,11pt,twoside,onecolumn,final,openany}
 \ProcessOptions
-
 \input{bk1\@ptsize.clo}
 \setlength\lineskip{1\p@}
 \setlength\normallineskip{1\p@}
@@ -102,6 +95,8 @@
 \setcounter{dbltopnumber}{2}
 \renewcommand\dbltopfraction{.7}
 \renewcommand\dblfloatpagefraction{.5}
+
+
 \if@twoside
   \def\ps@headings{%
       \let\@oddfoot\@empty\let\@evenfoot\@empty
@@ -110,17 +105,9 @@
       \let\@mkboth\markboth
     \def\chaptermark##1{%
       \markboth {\MakeUppercase{%
-        \ifnum \c@secnumdepth >\m@ne
-          \if@mainmatter
-            \@chapapp\ \thechapter. \ %
-          \fi
-        \fi
         ##1}}{}}%
     \def\sectionmark##1{%
       \markright {\MakeUppercase{%
-        \ifnum \c@secnumdepth >\z@
-          \thesection. \ %
-        \fi
         ##1}}}}
 \else
   \def\ps@headings{%
@@ -129,11 +116,6 @@
     \let\@mkboth\markboth
     \def\chaptermark##1{%
       \markright {\MakeUppercase{%
-        \ifnum \c@secnumdepth >\m@ne
-          \if@mainmatter
-            \@chapapp\ \thechapter. \ %
-          \fi
-        \fi
         ##1}}}}
 \fi
 \def\ps@myheadings{%
@@ -144,92 +126,7 @@
     \let\chaptermark\@gobble
     \let\sectionmark\@gobble
     }
-\if@titlepage
-  \newcommand\maketitle{\begin{titlepage}%
-  \let\footnotesize\small
-  \let\footnoterule\relax
-  \let \footnote \thanks
-  \null\vfil
-  \vskip 60\p@
-  \begin{center}%
-    {\LARGE \@title \par}%
-    \vskip 3em%
-    {\large
-     \lineskip .75em%
-      \begin{tabular}[t]{c}%
-        \@author
-      \end{tabular}\par}%
-      \vskip 1.5em%
-    {\large \@date \par}%       % Set date in \large size.
-  \end{center}\par
-  \@thanks
-  \vfil\null
-  \end{titlepage}%
-  \setcounter{footnote}{0}%
-  \global\let\thanks\relax
-  \global\let\maketitle\relax
-  \global\let\@thanks\@empty
-  \global\let\@author\@empty
-  \global\let\@date\@empty
-  \global\let\@title\@empty
-  \global\let\title\relax
-  \global\let\author\relax
-  \global\let\date\relax
-  \global\let\and\relax
-  }
-\else
-  \newcommand\maketitle{\par
-    \begingroup
-      \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
-      \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
-      \long\def\@makefntext##1{\parindent 1em\noindent
-              \hb@xt@1.8em{%
-                \hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
-      \if@twocolumn
-        \ifnum \col@number=\@ne
-          \@maketitle
-        \else
-          \twocolumn[\@maketitle]%
-        \fi
-      \else
-      \newpage
-        \global\@topnum\z@   % Prevents figures from going at top of page.
-        \@maketitle
-      \fi
-      \thispagestyle{plain}\@thanks
-    \endgroup
-    \setcounter{footnote}{0}%
-    \global\let\thanks\relax
-    \global\let\maketitle\relax
-    \global\let\@maketitle\relax
-    \global\let\@thanks\@empty
-    \global\let\@author\@empty
-    \global\let\@date\@empty
-    \global\let\@title\@empty
-    \global\let\title\relax
-    \global\let\author\relax
-    \global\let\date\relax
-    \global\let\and\relax
-  }
-\def\@maketitle{%
-  \newpage
-  \null
-  \vskip 2em%
-  \begin{center}%
-  \let \footnote \thanks
-    {\LARGE \@title \par}%
-    \vskip 1.5em%
-    {\large
-      \lineskip .5em%
-      \begin{tabular}[t]{c}%
-        \@author
-      \end{tabular}\par}%
-    \vskip 1em%
-    {\large \@date}%
-  \end{center}%
-  \par
-  \vskip 1.5em}
-\fi
+    
 \newcommand*\chaptermark[1]{}
 \setcounter{secnumdepth}{2}
 \newcounter {part}
@@ -240,6 +137,7 @@
 \newcounter {paragraph}[subsubsection]
 \newcounter {subparagraph}[paragraph]
 \newcounter {mishnah}
+\newcounter {braisa}
 \renewcommand \thepart {\@Roman\c@part}
 \renewcommand \thechapter {\@arabic\c@chapter}
 \renewcommand \thesection {\thechapter.\@arabic\c@section}
@@ -248,6 +146,7 @@
 \renewcommand\theparagraph    {\thesubsubsection.\@arabic\c@paragraph}
 \renewcommand\thesubparagraph {\theparagraph.\@arabic\c@subparagraph}
 \renewcommand\themishnah {\@alph\c@mishnah}
+\renewcommand\thebraisa {\@alph\c@braisa}
 \newcommand\@chapapp{\chaptername}
 \newcommand\frontmatter{%
     \cleardoublepage
@@ -316,7 +215,7 @@
               \if@tempswa
                 \twocolumn
               \fi}
-\newcommand\chapter{\vskip 10pt
+\newcommand\chapter{\vskip 5pt
 		   \thispagestyle{plain}%
                     \global\@topnum\z@
                     \@afterindentfalse
@@ -369,27 +268,28 @@
     \Huge \bfseries  #1\par\nobreak
     \vskip 20\p@
   }}
-\newcommand\section{\setcounter{mishnah}{0}\@startsection {section}{1}{\z@}%
+\newcommand\section{\setcounter{mishnah}{0}\setcounter{braisa}{0}\@startsection {section}{1}{\z@}%
                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
                                    {2.3ex \@plus.2ex}%
                                    {\normalfont\Large\bfseries}}
-\newcommand\subsection{\@startsection{subsection}{2}{\z@}%
+\newcommand\subsection{\setcounter{mishnah}{0}\setcounter{braisa}{0}\@startsection{subsection}{2}{\z@}%
                                      {-3.25ex\@plus -1ex \@minus -.2ex}%
                                      {1.5ex \@plus .2ex}%
                                      {\normalfont\large\bfseries}}
-\newcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+\newcommand\subsubsection{\setcounter{mishnah}{0}\setcounter{braisa}{0}\@startsection{subsubsection}{3}{\z@}%
                                      {-3.25ex\@plus -1ex \@minus -.2ex}%
                                      {1.5ex \@plus .2ex}%
                                      {\normalfont\normalsize\bfseries}}
 \newcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
                                     {3.25ex \@plus1ex \@minus.2ex}%
-                                    {-1em}%
+                                    {2pt}%
                                     {\normalfont\normalsize\bfseries}}
 \newcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
                                        {3.25ex \@plus1ex \@minus .2ex}%
                                        {-1em}%
                                       {\normalfont\normalsize\bfseries}}
-\newcommand\mishnah{משנה \refstepcounter{mishnah}\themishnah\hspace{1.5 em}}	
+\newcommand\mishnah{משנה \refstepcounter{mishnah}\themishnah\hspace{1.5 em}}
+\newcommand\braisa{ברייתא \refstepcounter{braisa}\thebraisa\hspace{1.5 em}}
 \if@twocolumn
   \setlength\leftmargini  {2em}
 \else
@@ -717,18 +617,58 @@
 %% Load required packages
 \RequirePackage{geometry}               	% See geometry.pdf to learn the layout options. There are lots.
 \RequirePackage{array}
+\RequirePackage{graphicx}			% For including inmages
+\RequirePackage{pgfornament}			% For included tysetting onraments defined using PGF
 %\RequirePackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
 						% Currently bugged in Hebrew
 						% Do not use \par with Hebrew typsetting
 \RequirePackage{multicol}			% Enables changing the number of columns in which text is tysepet on a single page.
+\RequirePackage{wrapfig}			% Wrap text around figures or text
 \RequirePackage{longtable}			% Enables creating tables that span multiple pages
 \RequirePackage[hidelinks]{hyperref}		% For creating hyperlinks
 \RequirePackage{polyglossia}			% Multilingual, bidirectional tysetting with .otf and .ttf fonts
 
-
 \setlength\columnsep{2em}			% Sets separation between columns for multicolumn typsetting
 \setlength\columnseprule{0.4pt}			% Separates columns with black line
 \setmainlanguage{hebrew}			% Sets main language to Hebrew
+
+%% New variables for nusach and subtitle
+\def\nusach#1{\gdef\@nusach{#1}}
+\def\subtitle#1{\gdef\@subtitle{#1}}
+
+%% Define \maketitle command
+\def\maketitle{
+	\begin{titlepage}
+		\begin{center}
+			\null\Huge\vskip 2em
+			\@title\\\vskip 1em\Large
+			\@nusach\\\vskip 2em
+			\@subtitle
+		\end{center}
+	\end{titlepage}
+}
+
+%% Define \makefancytitle commmand
+%% Typesets title page including typsetying ornaments
+%% from pgfornament.sty
+\def\makefancytitle{
+	\begin{titlepage}
+		\begin{center}
+			\null\Huge\vskip 1em
+			\pgfornament[scale=0.2]{69}
+			\vskip 0.5em
+			\pgfornament[scale=0.1,ydelta=-5]{79}\@title\ 
+			\pgfornament[scale=0.1,symmetry=v,ydelta=-5]{79}\\
+			\Large
+			\vskip 1em
+			\@nusach
+			\vskip 2em
+			\@subtitle
+			\vskip 1em
+			\pgfornament[scale=0.2,symmetry=h]{69}
+		\end{center}
+	\end{titlepage}
+}
 
 %% Code to replace certain hebrew numbers which would otherwise spell negative words
 %% Found on the TeX Stack Exchange
@@ -751,8 +691,12 @@
 \newbadnum{344}{שדמ}
 \newbadnum{744}{תשדמ}
 
-\marginparsep 20pt
-\marginparwidth 40pt
+%% Set margin size
+\marginparsep 10pt
+\marginparwidth 30pt
+
+% Reverse margin note placement to account for right-to-left language
+\reversemarginpar
 
 \endinput
 %%
