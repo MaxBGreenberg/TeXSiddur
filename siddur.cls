@@ -688,6 +688,7 @@
 \newbadnum{270}{ער}   %% <- literally bad
 \newbadnum{272}{ערב}
 \newbadnum{275}{ערה}
+\newbadnum{298}{צרח}
 \newbadnum{344}{שדמ}
 \newbadnum{744}{תשדמ}
 
