@@ -690,6 +690,7 @@
 \newbadnum{275}{ערה}
 \newbadnum{298}{צרח}
 \newbadnum{344}{שדמ}
+\newbadnum{698}{תצרח}
 \newbadnum{744}{תשדמ}
 
 %% Set margin size
