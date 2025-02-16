@@ -626,11 +626,13 @@
 \RequirePackage{wrapfig}			% Wrap text around figures or text
 \RequirePackage{longtable}			% Enables creating tables that span multiple pages
 \RequirePackage[hidelinks]{hyperref}		% For creating hyperlinks
+\RequirePackage{minitoc}			% Enables mini table of contents at the start of a chapter
 \RequirePackage{polyglossia}			% Multilingual, bidirectional tysetting with .otf and .ttf fonts
 
 \setlength\columnsep{2em}			% Sets separation between columns for multicolumn typsetting
 \setlength\columnseprule{0.4pt}			% Separates columns with black line
 \setmainlanguage{hebrew}			% Sets main language to Hebrew
+\renewcommand{\mtctitle}{תוכן}	% Rename talbe of paragraphs
 
 %% New variables for nusach and subtitle
 \def\nusach#1{\gdef\@nusach{#1}}
