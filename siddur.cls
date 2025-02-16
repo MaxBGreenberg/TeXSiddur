@@ -697,6 +697,10 @@
 \marginparsep 10pt
 \marginparwidth 30pt
 
+%% Set line skip before and after longtable
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+
 % Reverse margin note placement to account for right-to-left language
 \reversemarginpar
 
