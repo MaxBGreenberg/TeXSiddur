@@ -155,7 +155,7 @@
 \newcommand\mainmatter{%
     \cleardoublepage
   \@mainmattertrue
-  \pagenumbering{alph}\setcounter{page}{2}}
+  \pagenumbering{arabic}\setcounter{page}{2}}
 \newcommand\backmatter{%
   \if@openright
     \cleardoublepage
