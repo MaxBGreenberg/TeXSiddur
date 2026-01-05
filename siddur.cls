@@ -626,7 +626,6 @@
 \RequirePackage{wrapfig}			% Wrap text around figures or text
 \RequirePackage{longtable}			% Enables creating tables that span multiple pages
 \RequirePackage[hidelinks]{hyperref}		% For creating hyperlinks
-\RequirePackage{minitoc}			% Enables mini table of contents at the start of a chapter
 \RequirePackage{polyglossia}			% Multilingual, bidirectional tysetting with .otf and .ttf fonts
 
 \setlength\columnsep{2em}			% Sets separation between columns for multicolumn typsetting
