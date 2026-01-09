@@ -619,10 +619,9 @@
 \RequirePackage{array}
 \RequirePackage{graphicx}			% For including inmages
 \RequirePackage{pgfornament}			% For included tysetting onraments defined using PGF
-%\RequirePackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
-						% Currently bugged in Hebrew
-						% Do not use \par with Hebrew typsetting
-\RequirePackage{multicol}			% Enables changing the number of columns in which text is tysepet on a single page.
+\RequirePackage{multirow}			% Add support for multirow cells in tabular environments
+\RequirePackage{multicol}			% Enables changing the number of columns in which text is tysepet on a single page
+\RequirePackage{paracol}			% Enables multiple cloumns for variant texts
 \RequirePackage{wrapfig}			% Wrap text around figures or text
 \RequirePackage{longtable}			% Enables creating tables that span multiple pages
 \RequirePackage[hidelinks]{hyperref}		% For creating hyperlinks
