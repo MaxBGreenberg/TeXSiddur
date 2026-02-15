@@ -601,7 +601,7 @@
 \setlength\columnsep{10\p@}
 \setlength\columnseprule{0\p@}
 \pagestyle{headings}
-\pagenumbering{alph}				% Makes default page numbering letters of the default language			
+\pagenumbering{arabic}			
 \if@twoside
 \else
   \raggedbottom
