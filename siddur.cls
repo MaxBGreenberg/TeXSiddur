@@ -215,7 +215,7 @@
               \if@tempswa
                 \twocolumn
               \fi}
-\newcommand\chapter{\vskip 5pt
+\newcommand\chapter{\vskip 0pt % original value 5pt
 		   \thispagestyle{plain}%
                     \global\@topnum\z@
                     \@afterindentfalse
@@ -248,12 +248,12 @@
       \if@mainmatter
         \huge\bfseries %\@chapapp\space \thechapter
         \par\nobreak
-        \vskip 20\p@
+        \vskip 10pt %original value 20\p@
       \fi
     %\fi
     \interlinepenalty\@M
     \Huge \bfseries #1\par\nobreak
-    \vskip 20\p@
+    \vskip 10pt %original value 20\p@
   }}
 \def\@schapter#1{\if@twocolumn
                    \@topnewpage[\@makeschapterhead{#1}]%
@@ -266,7 +266,7 @@
     \normalfont
     \interlinepenalty\@M
     \Huge \bfseries  #1\par\nobreak
-    \vskip 20\p@
+    \vskip 10pt %original value 20\p@
   }}
 \newcommand\section{\setcounter{mishnah}{0}\setcounter{braisa}{0}\@startsection {section}{1}{\z@}%
                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
