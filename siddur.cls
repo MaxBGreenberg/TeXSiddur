@@ -692,9 +692,13 @@
 \newbadnum{698}{תצרח}
 \newbadnum{744}{תשדמ}
 
-%% Set margin size
-\marginparsep 10pt
-\marginparwidth 30pt
+%% Set page margins and text area
+\topmargin=-50pt
+\headsep=15pt
+\textheight=0.83\paperheight
+\footskip=20pt
+\marginparsep=10pt
+\marginparwidth=30pt
 
 %% Set line skip before and after longtable
 \setlength{\LTpre}{0pt}
