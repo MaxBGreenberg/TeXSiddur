@@ -697,7 +697,7 @@
 \headsep=15pt
 \textheight=0.83\paperheight
 \footskip=20pt
-\marginparsep=10pt
+\marginparsep=7pt
 \marginparwidth=30pt
 
 %% Set line skip before and after longtable
